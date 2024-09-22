@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Productos</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Productos Registrados</h1>
+    <ul>
+        <!-- Aquí va el código para mostrar la lista de productos -->
+        {% for producto in productos %}
+            <li>{{ producto.codigo }} - {{ producto.nombre }} - {{ producto.marca }} - {{ producto.fecha_vencimiento }}</li>
+        {% empty %}
+            <li>No hay productos registrados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'registro_producto' %}">Registrar un nuevo producto</a>
+</body>
+</html>
+

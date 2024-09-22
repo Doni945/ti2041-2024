@@ -1,0 +1,34 @@
+/* styles.css */
+
+body.light-mode {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    color: #007bff;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #110bc7;
+}
+
+a:hover {
+    text-decoration: underline;
+}

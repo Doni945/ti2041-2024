@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado de Registro</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Registro Exitoso</h1>
+    <p>El producto ha sido registrado correctamente.</p>
+    <a href="{% url 'consulta_productos' %}">Ver productos registrados</a>
+    <a href="{% url 'registro_producto' %}">Registrar un nuevo producto</a>  <!-- Cambiado a registro_producto -->
+
+</body>
+</html>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Productos</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Registro de Productos</h1>
+    <div class="form-container">
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" class="input-field" name="codigo" placeholder="Código" required>
+            <input type="text" class="input-field" name="nombre" placeholder="Nombre" required>
+            <input type="text" class="input-field" name="marca" placeholder="Marca" required>
+            <input type="date" class="input-field" name="fecha_vencimiento" required>
+            <button type="submit" class="btn">Registrar Producto</button>
+            <a href="{% url 'consulta_productos' %}">Ver productos registrados</a>
+        </form>
+    </div>
+</body>
+</html>
+
