@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resultado de Registro</title>
+    <title>Iniciar Sesión</title>
     
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -16,13 +16,15 @@
     </style>
 </head>
 <body>
-    <h1>Registro Exitoso</h1>
-    <p>El producto ha sido registrado correctamente.</p>
-    <a href="{% url 'consulta_productos' %}" class="btn">Ver productos registrados</a>
-    <br><br>
-    <!-- Estilo en línea para que el enlace parezca un botón -->
-    <a href="{% url 'registro_producto' %}" style="display: inline-block; padding: 10px 20px; background-color: #c1c1c1; color: rgb(0, 0, 0); text-decoration: none; border-radius: 5px;">Registrar un nuevo producto</a>
+    <h1>Iniciar Sesión</h1>
+    <div class="form-container">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <input type="text" class="input-field" name="username" placeholder="Nombre de usuario" required>
+            <input type="password" class="input-field" name="password" placeholder="Contraseña" required>
+            <button type="submit" class="btn">Iniciar Sesión</button>
+        </form>
+        <p class="error">{{ error }}</p>
+    </div>
 </body>
 </html>
-
-

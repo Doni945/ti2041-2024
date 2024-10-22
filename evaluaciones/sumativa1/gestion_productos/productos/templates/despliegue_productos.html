@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despliegue de Productos</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/grid.webp' %}");
+            background-size: cover; /* Esto ajusta la imagen para que cubra todo el fondo */
+            background-position: center; /* Esto centra la imagen en el fondo */
+        }
+    </style>
+</head>
+<body>
+    <h1>Despliegue de Productos</h1>
+
+    <!-- Botón Atrás con estilo -->
+    <button type="button" onclick="window.history.back();" class="btn" style="display: inline-block; padding: 10px 20px; background-color: #bababa; color: rgb(0, 0, 0); border: none; border-radius: 5px; text-align: center; cursor: pointer;">Atrás</button>
+
+    <form method="GET" action="">
+        <!-- Menú desplegable para Marca -->
+        <label for="marca">Marca:</label>
+        <select id="marca" name="marca">
+            <option value="">Todas</option>
+            {% for marca in marcas %}
+                <option value="{{ marca }}" {% if request.GET.marca == marca %}selected{% endif %}>{{ marca }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Menú desplegable para Categoría -->
+        <label for="categoria">Categoría:</label>
+        <select id="categoria" name="categoria">
+            <option value="">Todas</option>
+            {% for categoria in categorias %}
+                <option value="{{ categoria }}" {% if request.GET.categoria == categoria %}selected{% endif %}>{{ categoria }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- Menú desplegable para Características -->
+        <label for="caracteristicas">Características:</label>
+        <select id="caracteristicas" name="caracteristicas">
+            <option value="">Todas</option>
+            {% for caracteristica in caracteristicas %}
+                <option value="{{ caracteristica }}" {% if request.GET.caracteristicas == caracteristica %}selected{% endif %}>{{ caracteristica }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn" style="display: inline-block; padding: 10px 20px; background-color: #bababa; color: rgb(0, 0, 0); border: none; border-radius: 5px; text-align: center; cursor: pointer;">Aplicar Filtros</button>
+    </form>
+
+    <hr>
+
+    <h2>Listado de Productos</h2>
+    <ul>
+        {% for producto in productos %}
+        <li>
+            <strong>{{ producto.nombre }}</strong> - Marca: {{ producto.marca }} - Categoría: {{ producto.categoria }}
+            <br> Características: {{ producto.caracteristicas }}
+        </li>
+        {% empty %}
+        <li>No hay productos que coincidan con los filtros.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -7,6 +7,13 @@
     
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/grid.webp' %}");
+            background-size: cover; 
+            background-position: center; 
+        }
+    </style>
 </head>
 <body>
     <h1>Registro de Productos</h1>
@@ -17,10 +24,19 @@
             <input type="text" class="input-field" name="nombre" placeholder="Nombre" required>
             <input type="text" class="input-field" name="marca" placeholder="Marca" required>
             <input type="date" class="input-field" name="fecha_vencimiento" required>
-            <button type="submit" class="btn">Registrar Producto</button>
-            <a href="{% url 'consulta_productos' %}">Ver productos registrados</a>
+            <button type="submit" class="btn" style="display: inline-block; padding: 10px 20px; background-color: #bababa; color: rgb(0, 0, 0); border: none; border-radius: 5px; text-align: center; cursor: pointer;">Registrar Producto</button>
+            <a href="{% url 'despliegue_productos' %}" style="display: inline-block; padding: 10px 20px; background-color: #bcbcbce6; color: black; text-decoration: none; border-radius: 5px; text-align: center;">Ver productos con filtros</a>
+
+        </form>
+        <br>
+        
+        <form action="{% url 'consulta_productos' %}" method="get">
+            <button type="submit" class="btn" style="display: inline-block; padding: 10px 20px; background-color: #bababa; color: rgb(0, 0, 0); border: none; border-radius: 5px; text-align: center; cursor: pointer;">Ver productos registrados</button>
+
         </form>
     </div>
 </body>
 </html>
+
+
 

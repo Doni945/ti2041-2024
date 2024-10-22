@@ -10,3 +10,13 @@
     #path('consulta/', consulta_productos, name='consulta_productos'),
 #]
 
+
+
+
+# productos/urls.py
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('lista/', views.lista_productos, name='lista_productos'),
+]

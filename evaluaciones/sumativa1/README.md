@@ -17,6 +17,12 @@ Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalados 
 - **Python 3.10+**
 - **Django 4.2+**
 
+**super user**
+ Ve a http://127.0.0.1:8000/admin/.
+ Name: admin
+ Contraseña: inacap2024
+ Mail: danilo.moreno02@gmail.com
+
 Inicia el servidor local de Django:
 python manage.py runserver
 

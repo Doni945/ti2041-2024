@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'productos',  
 ]
 
 MIDDLEWARE = [
@@ -120,6 +121,7 @@ STATIC_URL = 'static/'
 # Static files directory configuration
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
+    BASE_DIR / "static/images", # Ruta específica a la carpeta de mi imagen
 ]
 
 # Default primary key field type
