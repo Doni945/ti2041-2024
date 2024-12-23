@@ -23,8 +23,14 @@ from productos.views import (
     consulta_productos, 
     inicio_sesion, 
     despliegue_productos,
-    cerrar_sesion,  # Importa la vista cerrar_sesion
-    acceso_denegado  # Añade la vista acceso_denegado
+    cerrar_sesion,
+    acceso_denegado
+)
+from productos.api import api  # Importamos la instancia de NinjaAPI desde el archivo api.py
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
 )
 
 urlpatterns = [
@@ -35,8 +41,13 @@ urlpatterns = [
     path('resultado/', resultado_producto, name='resultado_producto'),
     path('consulta/', consulta_productos, name='consulta_productos'),
     path('despliegue/', despliegue_productos, name='despliegue_productos'),
-    path('logout/', cerrar_sesion, name='cerrar_sesion'),  # Nueva ruta para cerrar sesión
-    path('acceso_denegado/', acceso_denegado, name='acceso_denegado'),  # Ruta para acceso_denegado
+    path('logout/', cerrar_sesion, name='cerrar_sesion'),  # Ruta para cerrar sesión
+    path('acceso_denegado/', acceso_denegado, name='acceso_denegado'),  # Ruta para acceso denegado
+    path('api/', api.urls),  # Punto de entrada para la API
+    # Rutas para JWT
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Obtener tokens de acceso y actualización
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),  # Refrescar el token de acceso
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),  # Verificar validez de un token
 ]
 
 

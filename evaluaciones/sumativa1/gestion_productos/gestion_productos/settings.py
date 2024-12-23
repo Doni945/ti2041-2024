@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -27,9 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'productos',  
+    'rest_framework',  # Para REST framework
+    'rest_framework_simplejwt',  # Para autenticación JWT
 ]
 
 MIDDLEWARE = [
@@ -69,7 +69,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'gestion_productos.wsgi.application'
-
 
 # Database
 DATABASES = {
@@ -117,4 +116,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Login configuration
 LOGIN_URL = '/'  # URL donde se redirige a usuarios no autenticados
 LOGIN_REDIRECT_URL = '/productos/'  # Redirección después del login exitoso
+
+# Configuración de REST framework con JWT
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+# Configuración de JWT
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),  # Duración del token de acceso
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),  # Duración del token de actualización
+    'ROTATE_REFRESH_TOKENS': False,  # Si rotar los tokens de actualización
+    'BLACKLIST_AFTER_ROTATION': True,  # Si poner en lista negra el token de actualización después de ser rotado
+    'AUTH_HEADER_TYPES': ('Bearer',),  # Prefijo para el token en las solicitudes
+}
 
