@@ -16,7 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from productos.views import lista_productos, registro_producto, resultado_producto, consulta_productos, inicio_sesion, despliegue_productos
+from productos.views import (
+    lista_productos, 
+    registro_producto, 
+    resultado_producto, 
+    consulta_productos, 
+    inicio_sesion, 
+    despliegue_productos,
+    cerrar_sesion,  # Importa la vista cerrar_sesion
+    acceso_denegado  # Añade la vista acceso_denegado
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +34,9 @@ urlpatterns = [
     path('registro/', registro_producto, name='registro_producto'),
     path('resultado/', resultado_producto, name='resultado_producto'),
     path('consulta/', consulta_productos, name='consulta_productos'),
-    path('despliegue/', despliegue_productos, name='despliegue_productos'),  # Nueva ruta para el despliegue de productos
+    path('despliegue/', despliegue_productos, name='despliegue_productos'),
+    path('logout/', cerrar_sesion, name='cerrar_sesion'),  # Nueva ruta para cerrar sesión
+    path('acceso_denegado/', acceso_denegado, name='acceso_denegado'),  # Ruta para acceso_denegado
 ]
+
+

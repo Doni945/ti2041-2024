@@ -23,6 +23,21 @@ Para ejecutar este proyecto en tu entorno local, asegúrate de tener instalados 
  Contraseña: inacap2024
  Mail: danilo.moreno02@gmail.com
 
+**user login**
+ Name: usuario2
+ Contraseña: 123456
+
+
+ **Medidas de Seguridad Aplicadas**
+ 1_Autenticación de Usuarios con el Decorador @login_required
+ Para garantizar que solo los usuarios autenticados puedan acceder a las páginas de gestión de productos, se ha utilizado el decorador @login_required de Django.
+ 2_Autorización Basada en Grupos de Usuario
+ El acceso a las funcionalidades de gestión de productos está restringido a los usuarios que pertenecen al grupo ADMIN_PRODUCTS
+ 3_Protección Contra CSRF (Cross-Site Request Forgery)
+ Django implementa automáticamente protección contra ataques CSRF, los cuales intentan ejecutar solicitudes no autorizadas en nombre del usuario.
+
+
+
 Inicia el servidor local de Django:
 python manage.py runserver
 

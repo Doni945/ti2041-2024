@@ -41,5 +41,60 @@ body {
     height: 100vh; /* Altura del viewport */
     margin: 0; /* Sin márgenes */
     font-family: Arial, sans-serif; /* Fuente para el texto */
-    color: #fff; /* Color del texto */
+    color: #000000; /* Color del texto */
 }
+
+/* Botón de logout en la parte superior derecha */
+.logout-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logout-button button {
+    all: unset; /* Se aplica solo a este botón */
+    width: 100%;
+    height: 100%;
+}
+
+.logout-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Clase general para botones y enlaces estilizados */
+.btn {
+    display: inline-block;   /* Se comporta como bloque en línea */
+    padding: 10px 20px;      /* Espaciado interno */
+    background-color: #bcbcbce6; /* Color de fondo */
+    color: black;            /* Color del texto */
+    border: none;            /* Sin borde */
+    border-radius: 5px;      /* Bordes redondeados */
+    text-align: center;      /* Texto centrado */
+    text-decoration: none;   /* Sin subrayado */
+    font-family: Arial, sans-serif; /* Fuente coherente */
+    font-size: 16px;         /* Tamaño de texto */
+    cursor: pointer;         /* Cursor de mano */
+    transition: background-color 0.3s ease; /* Efecto suave */
+}
+
+.btn:hover {
+    background-color: #bababa; /* Cambio de color al pasar el mouse */
+    text-decoration: none;     /* Asegura que no aparezca subrayado */
+}
+
+
+
+
